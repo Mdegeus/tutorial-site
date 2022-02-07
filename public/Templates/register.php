@@ -5,7 +5,9 @@
         $email = $_POST['email'];
         $password = $_POST['password'];
 
-        createUser($username, $email, $password);
+        $logging = true;
+
+        $result = createUser($username, $email, $password);
     }
 
 ?>
@@ -38,6 +40,31 @@
             <a href="/login">Already have an acount? Login here.</a>
         </form>
     </div>
+
+    <?php if(isset($logging) && $result): ?>
+        <p class="popup">Your registration was successfull. You where logged in aswell.</p>
+        <audio controls autoplay hidden>
+            <source src="/audio/notify-1.mp3" type="audio/mpeg">
+        </audio>
+    <?php elseif (isset($logging) && !$result): ?>
+        <p class="popup">Your registration was unsuccessfull. Please try again.</p>
+        <audio controls autoplay hidden>
+            <source src="/audio/notify-1.mp3" type="audio/mpeg">
+        </audio>
+    <?php else: ?>
+        <?php if(!isset($_SESSION['user'])): ?>
+            <p class="popup">Here you can create a free acount.</p>
+            <audio controls autoplay hidden>
+                <source src="/audio/notify-1.mp3" type="audio/mpeg">
+            </audio>
+        <?php else: ?>
+            <p class="popup">You are already logged in.</p>
+            <audio controls autoplay hidden>
+                <source src="/audio/notify-1.mp3" type="audio/mpeg">
+            </audio>
+        <?php endif; ?>
+    <?php endif; ?>
+
 
 </body>
     <?php

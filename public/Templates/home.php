@@ -9,6 +9,8 @@
     <?php
             include_once "./Templates/defaults/navbar.php";
     ?>
+
+    <p class="popup">Home</p>
 </body>
     <?php
             include_once "./Templates/defaults/end.php";

@@ -13,7 +13,9 @@ function createUser($username, $email, $password) {
 
         $stmt->execute();
 
-        return $stmt->fetchAll(PDO::FETCH_CLASS);
+        $_SESSION['user'] = getUser($username);
+
+        return true;
     }
 }
 
@@ -45,6 +47,7 @@ function checkLogin($input, $password) { // input refers to username/email
 
         if ($passwordValid) {
             $_SESSION['user'] = $user;
+            return true;
         }
     }
 }
@@ -57,10 +60,10 @@ function updateCurrentUserData() {
     $_SESSION['user'] = getUser($userID);
 }
 
-function getUser($userID) {
+function getUser($input) {
     global $conn;
 
-    $sql = "SELECT * FROM users WHERE id = '$userID'";
+    $sql = "SELECT * FROM users WHERE id = '$input' OR username = '$input' OR email = '$input'";
 
     $stmt = $conn->prepare($sql);
 

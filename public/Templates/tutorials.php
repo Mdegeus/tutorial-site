@@ -25,6 +25,8 @@
         <?php endforeach; ?>
         
     </div>
+
+    <p class="popup">Tutorials</p>
 </body>
     <?php
             include_once "./Templates/defaults/end.php";
