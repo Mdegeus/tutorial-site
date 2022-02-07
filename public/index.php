@@ -10,6 +10,10 @@ $titleSuffix = "";
 session_start();
 
 switch ($params[1]) {
+    case 'creations':
+        $creations = getCreations();
+        include_once "./Templates/creations.php";
+        break;
     case 'dashboard':
         include_once "./Templates/dashboard.php";
         break;

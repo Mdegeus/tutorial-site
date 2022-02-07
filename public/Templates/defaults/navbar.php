@@ -5,7 +5,7 @@
         <li class="nav-item"><a href="/classes">Classes</a></li>
         <?php if(isset($_SESSION['user'])): ?>
             <li class="nav-item"><a href="/dashboard">Dashboard</a></li>
-            <li class="nav-item"><a id="logout" href="/mycreations">My creations</a></li>
+            <li class="nav-item"><a id="logout" href="/creations">Creations</a></li>
             <li class="nav-item"><a id="logout" href="/logout">Logout</a></li>
             <li class="nav-item"><p>(<?= $_SESSION['user']->username; ?>)</p></li>
         <?php else: ?>

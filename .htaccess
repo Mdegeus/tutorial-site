@@ -1,6 +1,7 @@
 RewriteEngine on
 
-RewriteRule ^tutorial/([0-9]+)/?$ /public/index.php?id=$1    [NC,L]    # Handle category requests
+RewriteRule ^tutorial/([0-9]+)/?$ /public/index.php?id=$1    [NC,L]
+RewriteRule ^creations/([0-9]+)/?$ /public/index.php?id=$1    [NC,L]
 
 
 # Rewrite all the default paths to public e.g. /css/style.css -> /public/css/style.css

@@ -13,6 +13,11 @@
     <div class="card-container">
 
         <?php foreach ($tutorials as $tutorial): ?>
+
+            <?php
+                $tags = getTutorialTags($tutorial->id);    
+            ?>
+
             <div class="card linked" link="/tutorial/<?= $tutorial->id ?>">
                 <div class="card-img-parent">
                     <img class="card-img" src="<?= $tutorial->img ?>" />
@@ -20,6 +25,11 @@
                 <div class="card-body">
                     <h1 class="card-title"><?= $tutorial->title; ?></h1>
                     <p class="card-description"><?= $tutorial->description; ?></p>
+                    <div class="tags">
+                        <?php foreach ($tags as $tag): ?>
+                            <p class="tag"><?= $tag->title; ?></p>
+                        <?php endforeach; ?>
+                    </div>
                 </div>
             </div>
         <?php endforeach; ?>

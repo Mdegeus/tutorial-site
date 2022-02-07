@@ -94,3 +94,13 @@ if (document.querySelector(".dock-close")) {
 
     });
 }
+
+
+if (popups) {
+    popups.forEach((popup) => {
+        popup.addEventListener("click", () => { ///// the event listener is handled here.
+            popup.remove();
+        })
+        
+    })
+}
